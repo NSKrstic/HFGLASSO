@@ -1,6 +1,6 @@
 # HFGLASSO
 
-Code developed to fit the method Hierarchical Fused Group (HFG) LASSO, as seen in the paper "HFG LASSO: a Method for Models with Hierarchical Categorical Predictors"
+Code developed to fit the method Hierarchical Fused Group (HFG) LASSO, as seen in the paper "HFG LASSO: a Method for Models with Hierarchical Categorical Predictors" and authored by Nikolas Krstic and Dr. Gabriela Cohen Freue.
 
 ## Repository Structure
 
