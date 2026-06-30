@@ -396,10 +396,10 @@ HFG_LASSO_NonHCPVer_Fit = function(HierDesignMatrix, HDM_NHCP_Length, Response, 
 
 
 ################################################
-## Function to identify Lambda_min for Hierarchical Fused Group LASSO, using the CVXR R package
+## Function to identify Lambda_Max for Hierarchical Fused Group LASSO, using the CVXR R package
 
 ## Note that because the least squares loss in the HFG LASSO objective function is not scaled by the sample size,
-## then this means a Lambda_Min that is very large is not unusual for large sample sizes, and can be manually scaled down by dividing by the sample size.
+## then this means a Lambda_Max that is very large is not unusual for large sample sizes, and can be manually scaled down by dividing by the sample size.
 
 ## Arguments:
 
@@ -409,7 +409,7 @@ HFG_LASSO_NonHCPVer_Fit = function(HierDesignMatrix, HDM_NHCP_Length, Response, 
 ## S_Matrices_Weights = The vector of weights for each penalization term
 ## HDM_NHCP_Length = The number of columns (starting from the final column) in the complete design matrix that correspond to the other covariates (zero by default)
 
-HFG_LASSO_Lambda_Min = function(DesignMatrix, Response, S_Matrices, S_Matrices_Weights, HDM_NHCP_Length=0){
+HFG_LASSO_Lambda_Max = function(DesignMatrix, Response, S_Matrices, S_Matrices_Weights, HDM_NHCP_Length=0){
   
   #Compute the "b" vector from Theorem 1
   if(HDM_NHCP_Length==0){
@@ -446,7 +446,7 @@ HFG_LASSO_Lambda_Min = function(DesignMatrix, Response, S_Matrices, S_Matrices_W
   #Construct the constraints
   Constraints_All = list((LHS_Vec)-Reduce('+', SW_Mat_Prods)==0)
   
-  #Solve for Lambda_min
+  #Solve for Lambda_max
   Objective = Minimize(Cost)
   Problem = Problem(Objective, Constraints_All)
   Solution = solve(Problem, feastol=1e-10, abstol=1e-10, reltol=1e-10, num_iter=10000, verbose=TRUE, solver="SCS")

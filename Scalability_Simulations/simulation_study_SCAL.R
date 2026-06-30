@@ -42,13 +42,13 @@ if(Sim_Scal_Type=="SS"){
 
 ## Set the Lambda Grid for HFG LASSO and the Number of Lambda to Use for TBA
 if(Sim_Scal_Type=="SS"){
-  #Create the S Matrices (to use if necessary, such as for computing Lambda_Min)
+  #Create the S Matrices (to use if necessary, such as for computing Lambda_Max)
   S_Matrices = lapply(Categ_Pair_Inds, function(x){t(apply(x, 1, function(y){S_Row=rep(0, ncol(HierDesignMatrix)); S_Row[y[1]]=1; S_Row[y[2]]=-1; return(S_Row)}))})
   
-  ## Identify Lambda_Min using Theorem 1
-  Lambda_Min = HFG_LASSO_Lambda_Min(DesignMatrix, Response, S_Matrices, S_Matrices_Weights)
+  ## Identify Lambda_Max using Theorem 1
+  Lambda_Max = HFG_LASSO_Lambda_Max(DesignMatrix, Response, S_Matrices, S_Matrices_Weights)
   
-  Lambda_Set = exp(seq(0, log(0.3*Lambda_Min), length.out=60))
+  Lambda_Set = exp(seq(0, log(0.3*Lambda_Max), length.out=60))
   
 }else if(Sim_Scal_Type=="HCPC"){
   Lambda_Set = exp(seq(0, 10, length.out=60))

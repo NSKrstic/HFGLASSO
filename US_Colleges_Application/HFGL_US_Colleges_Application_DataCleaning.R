@@ -172,7 +172,7 @@ Categ_Inds = lapply(Categ_Pair_Inds, function(x){sort(unique(as.vector(x)))})
 Categ_Pair_Inds = lapply(Categ_Pair_Inds, function(x){t(apply(x, 1, function(y){which(colnames(DesignMat_Geog_HCP) %in% y)}))})
 Categ_Inds = lapply(Categ_Inds, function(x){which(colnames(DesignMat_Geog_HCP) %in% x)})
 
-#Create the S Matrices (to use if necessary, such as for computing Lambda_Min)
+#Create the S Matrices (to use if necessary, such as for computing Lambda_Max)
 S_Matrices = lapply(Categ_Pair_Inds, function(x){t(apply(x, 1, function(y){S_Row=rep(0, ncol(DesignMat_Geog_HCP)); S_Row[y[1]]=1; S_Row[y[2]]=-1; return(S_Row)}))})
 
 

@@ -42,11 +42,11 @@ Proximal_Grad_Tol = 1e-8
 #SDMM Hyperparameter Setting
 Gamma = 0.5
 
-## Identify Lambda_Min using Theorem 1
-Lambda_Min = HFG_LASSO_Lambda_Min(DesignMatrix, Response, S_Matrices, S_Matrices_Weights)
+## Identify Lambda_Max using Theorem 1
+Lambda_Max = HFG_LASSO_Lambda_Max(DesignMatrix, Response, S_Matrices, S_Matrices_Weights)
 
 ## Set the Lambda Grid for HFG LASSO and the Number of Lambda to Use for TBA
-Lambda_Set = exp(seq(0, log(0.3*Lambda_Min), length.out=60))
+Lambda_Set = exp(seq(0, log(0.3*Lambda_Max), length.out=60))
 TBA_Lambda_Count = 60
 
 #Obtain the category frequencies, the category indices for non-zero columns of the S Matrices, and the fusion pairs for each of the S Matrices

@@ -11,7 +11,7 @@ The repository is organized as follows:
 - **Simulations**: Folder containing the primary simulation code (and results subfolders). See Sections 5.1, 5.2 and Appendix C (for the alternative weighting scheme simulation setting) of the paper.
 - **Sparse_Data_Simulation**: Folder containing the simulation code (and results subfolders) for the sparse HCP category simulation. See Appendix D of the paper.
 - **US_Colleges_Application**: Folder containing the code to conduct the data application with the US Colleges dataset. See Section 6 of the paper.
-- **HFG_LASSO_func.R**: The R script containing the HFG LASSO function code. One function is for fitting HFG LASSO without additional non-HCP covariates, another function is for fitting HFG LASSO with additional non-HCP covariates and the last function allows computation of lambda_min (see Section 4.6 of the paper).
+- **HFG_LASSO_func.R**: The R script containing the HFG LASSO function code. One function is for fitting HFG LASSO without additional non-HCP covariates, another function is for fitting HFG LASSO with additional non-HCP covariates and the last function allows computation of lambda_max (see Section 4.6 of the paper).
 - **HFGL_Fitting_Algorithm_1_Step_3_Functions.cpp**: The C++ script containing function code to conduct Step 3 of Algorithm 1 to fit HFG LASSO (these functions are called by the functions in HFG_LASSO_func.R). We recommend installing the Rcpp R package to be able to compile this code, as it is compiled directly within the simulation and application code.
 
 ### Simulation Code

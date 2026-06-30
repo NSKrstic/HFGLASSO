@@ -44,8 +44,8 @@ for(i in 1:length(Seeds)){
   HierDesignMatrix = DesignMat_Geog_HCP_Train
   Response = College_Training_Set$`Percent Pell Grant`
   
-  Lambda_Min = HFG_LASSO_Lambda_Min(HierDesignMatrix, Response, S_Matrices, S_Matrices_Weights)
-  Lambda_Set = exp(seq(0, log(0.3*Lambda_Min), length.out=60))
+  Lambda_Max = HFG_LASSO_Lambda_Max(HierDesignMatrix, Response, S_Matrices, S_Matrices_Weights)
+  Lambda_Set = exp(seq(0, log(0.3*Lambda_Max), length.out=60))
   TBA_Lambda_Count = 60
   
   #Fit tolerance to use when assessing convergence of the fit algorithm (Overall Coefficient convergence)
